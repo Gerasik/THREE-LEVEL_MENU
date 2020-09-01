@@ -1,0 +1,43 @@
+@import "../../../styles/mixin";
+
+.burger-button {
+  display: none;
+  @include mediaMobileTablet {
+    display: inline-flex;
+    margin: 15px;
+    width: 30px;
+    height: 20px;
+    box-sizing: border-box;
+    background-color: white;
+    border: none;
+    justify-content: space-between;
+    flex-direction: column;
+    div {
+      width: 100%;
+      height: 3px;
+      background-color: black;
+      transition: all 0.3s;
+      transform-origin: left;
+      border-radius: 5px;
+    }
+    &.active {
+      div {
+        background-color: orange;
+        width: 118%;
+      }
+      div:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      div:nth-child(2) {
+        display: none;
+      }
+      div:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+    }
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+}
